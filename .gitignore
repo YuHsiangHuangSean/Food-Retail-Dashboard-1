@@ -1,0 +1,38 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Google Cloud credentials
+*.credentials.json
+*service-account*.json
+application_default_credentials.json
+
+# dbt connection settings
+profiles.yml
+
+# dbt generated files
+target/
+dbt_packages/
+logs/
+
+# Local databases
+*.duckdb
+*.duckdb.wal
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
