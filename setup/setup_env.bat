@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-REM install python/anaconda, VS Code, Git for Windows, Google Cloud CLI, (and Tableau)
+REM Install python/anaconda, VS Code, Git for Windows, Google Cloud CLI, (and Tableau)
 REM Move this file to the intended parent directory
 
 REM Clone GitHub repository
