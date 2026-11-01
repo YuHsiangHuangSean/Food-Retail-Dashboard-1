@@ -1,6 +1,9 @@
 # Load prices from https://huggingface.co/datasets/openfoodfacts/open-prices to BigQuery
 
 import duckdb
+from google.cloud import bigquery
+
+# Download prices to local directory
 
 con = duckdb.connect()
 
@@ -16,7 +19,7 @@ con.execute("""
     (FORMAT PARQUET)
 """)
 
-from google.cloud import bigquery
+# Load prices into BigQuery
 
 client = bigquery.Client()
 

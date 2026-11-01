@@ -28,6 +28,7 @@ logs/
 # Local databases
 *.duckdb
 *.duckdb.wal
+*.parquet
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
