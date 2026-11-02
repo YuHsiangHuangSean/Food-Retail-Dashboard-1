@@ -1,0 +1,13 @@
+dbt_food_retail_dashboard_1:
+  outputs:
+    dev:
+      dataset: dbt_transformation
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: EU
+      method: oauth
+      priority: interactive
+      project: ecommerce-dashboard-1
+      threads: 4
+      type: bigquery
+  target: dev

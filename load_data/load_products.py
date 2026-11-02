@@ -2,6 +2,7 @@
 
 from datetime import datetime
 import duckdb
+from google.cloud import bigquery
 
 t0 = datetime.now()
 
@@ -40,6 +41,23 @@ con.execute("""
 con.close()
 
 # Load products into BigQuery
+# Right now it would take 11 GB of the logical storage in BigQuery 
+
+client = bigquery.Client()
+
+table_id = "ecommerce-dashboard-1.raw.products_18cols"
+
+with open("load_data/products_18cols.parquet", "rb") as file:
+    job = client.load_table_from_file(
+        file,
+        table_id,
+        job_config=bigquery.LoadJobConfig(
+            source_format=bigquery.SourceFormat.PARQUET,
+            write_disposition="WRITE_TRUNCATE"
+        )
+    )
+
+job.result()
 
 t1 = datetime.now()
 print(t1-t0)
