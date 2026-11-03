@@ -1,0 +1,81 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ecommerce-dashboard-1
+    schema: raw
+    description: "Data source: OpenFoodFacts open prices dataset and product dataset"
+    tables:
+
+      - name: prices
+        description: "Records of food prices"
+        columns:
+          - name: id
+            description: “Primary key”
+            data_tests:
+              - unique
+
+          - name: type
+            description: “PRODUCT (packaged products) or CATEGORY (fresh produce)”
+            data_tests:
+              - accepted_values:
+                  arguments:
+                    values: ['PRODUCT', 'CATEGORY']
+
+          - name: product_code
+            description: "Product barcode. Foreign key to products_18cols. Null for fresh produce. Find the custom test in tests"
+
+          - name: category_tag
+            description: "Category for fresh produce. Null for packaged products. Find the custom test in tests"
+
+          - name: price
+            description: "Find the custom test in tests. 4 negative values - filter out"
+
+          - name: price_without_discount
+            description: "Find the custom test in tests. 3417 rows with discounts but no original prices - filter out in discount amount calculations"
+
+          - name: price_per
+            description: "Units of price for fresh produce. KILOGRAM or UNIT. Find the custom test in tests"
+
+          - name: currency
+            description: "170 NULLs - filter out"
+            data_tests:
+              - not_null:
+                  config:
+                    severity: "error"
+                    error_if: "> 3000"
+                    warn_if: "> 0"
+
+          - name: date
+            description: "Date of record. 185 NULLs - filter out"
+            data_tests:
+              - not_null:
+                  config:
+                    severity: "error"
+                    error_if: "> 3000"
+                    warn_if: "> 0"
+
+          - name: proof_id
+            description: "ID of the proof of the price in the Open Prices DB. 129 NULLs - filter out"
+            data_tests:
+              - not_null:
+                  config:
+                      severity: "warn"
+
+          - name: proof_type
+            description: "How is proof provided. 45000+ are RECEIPT. GDPR_REQUEST is not published"
+          
+          - name: proof_currency
+            description: "Currency on the proof. Should be the same as currency. Find the custom test in tests"
+
+          - name: location_osm_address_country_code
+            description: "Country code. 1780 NULLs"
+            data_tests:
+              - not_null:
+                  config:
+                    severity: "error"
+                    error_if: "> 3000"
+                    warn_if: "> 0"
+
+      - name: products_18cols
+        description: "Product information"
