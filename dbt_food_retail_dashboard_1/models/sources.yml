@@ -28,8 +28,11 @@ sources:
           - name: category_tag
             description: "Category for fresh produce. Null for packaged products. Find the custom test in tests"
 
+          - name: labels_tags
+            description: "Labels for fresh produce. Null for packaged products. empty lists, NULL, or ['en:organic']. Find the custom test in tests"
+
           - name: price
-            description: "Find the custom test in tests. 4 negative values - filter out"
+            description: "Find the custom test in tests. 4 non-positive values - filter out"
 
           - name: price_without_discount
             description: "Find the custom test in tests. 3417 rows with discounts but no original prices - filter out in discount amount calculations"
@@ -45,6 +48,9 @@ sources:
                     severity: "error"
                     error_if: "> 3000"
                     warn_if: "> 0"
+              #- accepted_values:
+              #    arguments:
+              #      values: ['EUR', 'BGN', CHF, CZK, DKK, HUF]
 
           - name: date
             description: "Date of record. 185 NULLs - filter out"
@@ -69,7 +75,7 @@ sources:
             description: "Currency on the proof. Should be the same as currency. Find the custom test in tests"
 
           - name: location_osm_address_country_code
-            description: "Country code. 1780 NULLs"
+            description: "Country code. Find the custom test in tests. 1780 NULLs - filter out"
             data_tests:
               - not_null:
                   config:
