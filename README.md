@@ -21,7 +21,7 @@ Both datasets are loaded from Hugging Face: [price](https://huggingface.co/datas
 
 2. Data quality tests are applied to raw data to identify missing values, duplicates, and inconsistencies (Done).
 
-3. Datasets are cleaned based on data quality issues identified in the previous tests (WIP).
+3. Datasets are cleaned based on data quality issues identified in the previous tests (Done).
 
 4. Datasets are transformed into a dashboard-ready relational data model (WIP).
 
