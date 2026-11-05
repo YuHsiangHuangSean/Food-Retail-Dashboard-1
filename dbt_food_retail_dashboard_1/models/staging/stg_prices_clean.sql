@@ -3,8 +3,12 @@ SELECT
     type AS product_type,
     product_code AS product_code,
     product_name AS product_name,
-    category_tag AS category_fresh,
-    labels_tags AS label,
+    SPLIT(category_tag, ':')[OFFSET(1)] AS category_fresh,
+    CASE
+        WHEN labels_tags.list[SAFE_OFFSET(0)].element = 'en:organic'
+        THEN 'organic'
+        ELSE NULL
+    END AS label,
     price AS price,
     price_is_discounted AS discounted,
     price_without_discount AS price_original,
