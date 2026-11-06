@@ -1,3 +1,3 @@
 {{ config(enabled=false) }}
 # Change all currencies ['EUR', 'BGN', 'CZK', 'DKK', 'HUF', 'PLN', 'RON', 'SEK', 'ISK', 'NOK', 'CHF', 'HRK'] to EUR.
-# WIP
+# WIP earliest: 2009-04-01
