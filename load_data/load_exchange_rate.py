@@ -1,4 +1,9 @@
+# write into the same csv file
+import pandas as pd
 import requests
+from io import StringIO
+
+dfs = []
 
 for currency in ['BGN', 'CZK', 'DKK', 'HUF', 'PLN', 'RON', 'SEK', 'ISK', 'NOK', 'CHF', 'HRK']:
 
@@ -14,10 +19,13 @@ for currency in ['BGN', 'CZK', 'DKK', 'HUF', 'PLN', 'RON', 'SEK', 'ISK', 'NOK', 
 
     # Check if the request was successful
     if response.status_code == 200:
-        # Write the content to a csv file.
-        path = "dbt_food_retail_dashboard_1/seeds/EUR_to_" + currency + ".csv"
-        with open(path, 'wb') as file:
-            file.write(response.content)
+        # Write the content to a dataframe
+        df = pd.read_csv(StringIO(response.text))
+        dfs.append(df)
         print("Exchange rate for " + currency + " has been written")
     else:
         print(f"Failed to retrieve data: Status code {response.status_code}") 
+
+# Write dataframes to a csv file.
+combined_df = pd.concat(dfs, ignore_index=True)
+combined_df.to_csv('dbt_food_retail_dashboard_1/seeds/exchange_rates.csv', index=False)
