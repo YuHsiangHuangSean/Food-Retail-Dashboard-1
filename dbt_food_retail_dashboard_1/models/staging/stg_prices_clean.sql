@@ -18,7 +18,7 @@ SELECT
     created AS created_at,
     updated AS updated_at,
     location_osm_address_country_code AS country_code
-FROM {{ source('raw', 'prices')}}
+FROM {{ source('raw', 'prices') }}
 WHERE
     (price > 0 OR (price = 0 AND price_is_discounted IS TRUE))
     AND currency IS NOT NULL

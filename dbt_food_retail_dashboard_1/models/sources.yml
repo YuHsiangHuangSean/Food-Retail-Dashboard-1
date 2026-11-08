@@ -10,6 +10,7 @@ sources:
       - name: prices
         description: "Records of food prices"
         columns:
+        
           - name: id
             description: “Primary key”
             data_tests:
@@ -48,9 +49,6 @@ sources:
                     severity: "error"
                     error_if: "> 3000"
                     warn_if: "> 0"
-              #- accepted_values:
-              #    arguments:
-              #      values: ['EUR', 'BGN', CHF, CZK, DKK, HUF]
 
           - name: date
             description: "Date of record. 185 NULLs - filter out"

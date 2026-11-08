@@ -16,6 +16,8 @@ Over 4.8 million of [product data from Open Food Facts](https://world.openfoodfa
 
 Both datasets are loaded from Hugging Face: [price](https://huggingface.co/datasets/openfoodfacts/open-prices), [product](https://huggingface.co/datasets/openfoodfacts/product-database)
 
+Currency exchange rate data from [European Central Bank Data Portal](https://data.ecb.europa.eu/help/api/overview)
+
 ## ELT workflow
 1. Datasets are downloaded from Hugging Face and loaded into BigQuery. Further transformation and validation are managed using dbt Core (Done).
 

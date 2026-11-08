@@ -8,7 +8,6 @@ dfs = []
 for currency in ['BGN', 'CZK', 'DKK', 'HUF', 'PLN', 'RON', 'SEK', 'ISK', 'NOK', 'CHF', 'HRK']:
 
     # WS URL and dataset query
-    url = "https://data-api.ecb.europa.eu/service/data/EXR/M.CZK.EUR.SP00.A?startPeriod=2009-04-01"
     url = "https://data-api.ecb.europa.eu/service/data/EXR/M." + currency + ".EUR.SP00.A?startPeriod=2009-04-01"
 
     # Headers to store the content negotiation setting for the format of the output file.
