@@ -1,5 +1,4 @@
 {{ config(
-    description = "All discounted price records should come with original prices",
     severity = "error",
     error_if = "> 8000",
     warn_if = "> 0"

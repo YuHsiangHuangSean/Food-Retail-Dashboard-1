@@ -3,18 +3,19 @@ version: 2
 models:
 
   - name: stg_prices_clean
+    description: "Convert list columns to strings, handle null values in non-null columns, and filter out records that violate business rules"
     config:
       meta:
         owner: "Sean"
         owner_email: "yuhsianghuang.sean@gmail.com"
 
   - name: stg_prices_query_EU_EEA
+    description: "Query records in EU/EEA. Fix the issue that some EUR records are wrongfully marked as ADP. Filter out XPF records since it is the currency used in French overseas territories, which are not a part of EU/EEA"
     config:
       meta:
         owner: "Sean"
         owner_email: "yuhsianghuang.sean@gmail.com"
     columns:
-
       - name: currency
         description: "6 currencies not used in EU/EEA were found"
         data_tests:
@@ -28,12 +29,12 @@ models:
                 warn_if: "> 6"
 
   - name: stg_prices_unify_currency
+    description: "Convert the currency to EUR, using the monthly average exchange rate of the record month (or the last available month). Since BGN was replaced by EUR in 2026, the monthly average rate of 2025-12 is used for 2026 records"
     config:
       meta:
         owner: "Sean"
         owner_email: "yuhsianghuang.sean@gmail.com"
     columns:
-
       - name: exchange_rate
         description: "1 <currency> = X EUR"
         data_tests:

@@ -1,7 +1,3 @@
-{{ config(
-    description = "The label column should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
-) }} 
-
 SELECT
     id AS id,
     labels_tags AS labels

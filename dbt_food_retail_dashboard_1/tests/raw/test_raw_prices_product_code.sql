@@ -1,7 +1,3 @@
-{{ config(
-    description = "All packaged products should have product codes"
-) }} 
-
 SELECT
     id AS id,
     type AS product_type,

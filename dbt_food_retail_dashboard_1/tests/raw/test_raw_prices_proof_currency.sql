@@ -1,7 +1,3 @@
-{{ config(
-    description = "The currency in the proof should match the currency of the price records"
-) }} 
-
 SELECT
     id AS id,
     currency AS currency,

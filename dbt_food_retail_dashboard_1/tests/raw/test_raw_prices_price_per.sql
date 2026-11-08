@@ -1,7 +1,3 @@
-{{ config(
-    description = "Units should be either KILOGRAM or UNIT"
-) }} 
-
 SELECT
     id AS id,
     type AS product_type,

@@ -1,0 +1,6 @@
+version: 2
+
+data_tests:
+
+  - name: test_seeds_exchange_rates
+    description: "The combination of currency and year-month should be unique"

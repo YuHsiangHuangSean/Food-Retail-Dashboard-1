@@ -1,0 +1,27 @@
+version: 2
+
+data_tests:
+
+  - name: test_raw_prices_category_tag
+    description: "All fresh produce should have categories"
+
+  - name: test_raw_prices_country_code
+    description: "Country code and country should be 1-to-1 (except for 4 cases where the same country has multiple names)"
+
+  - name: test_raw_prices_labels_tag
+    description: "The label column should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
+
+  - name: test_raw_prices_price_per
+    description: "Units should be either KILOGRAM or UNIT"
+
+  - name: test_raw_prices_price_without_discount
+    description: "All discounted price records should come with original prices"
+
+  - name: test_raw_prices_price
+    description: "All prices without discount should be above 0"
+
+  - name: test_raw_prices_product_code
+    description: "All packaged products should have product codes"
+
+  - name: test_raw_prices_proof_currency
+    description: "The currency in the proof should match the currency of the price records"

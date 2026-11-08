@@ -1,7 +1,3 @@
-{{ config(
-    description = "Country code and country should be 1-to-1 (except for 4 cases where the same country has multiple names)"
-) }} 
-
 SELECT
   location_osm_address_country_code,
   COUNT(DISTINCT location_osm_address_country),

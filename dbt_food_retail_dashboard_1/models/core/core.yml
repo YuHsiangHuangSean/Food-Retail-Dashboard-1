@@ -1,0 +1,17 @@
+version: 2
+
+models:
+
+  - name: cor_prices_query_fresh
+    description: "Query fresh produce records from all records"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"
+
+  - name: cor_prices_query_packaged
+    description: "Query packaged product records from all records"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"

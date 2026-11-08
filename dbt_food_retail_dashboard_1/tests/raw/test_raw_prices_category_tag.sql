@@ -1,7 +1,3 @@
-{{ config(
-    description = "All fresh produce should have categories"
-) }} 
-
 SELECT
     id AS id,
     type AS product_type,
