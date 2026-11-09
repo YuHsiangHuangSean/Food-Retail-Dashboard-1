@@ -1,15 +1,13 @@
 SELECT
     id,
-    product_name,
-    category_fresh AS category,
+    CONCAT(category_fresh, ' (per ', unit, ')') AS product,
     label,
     price,
     discounted,
     price_original,
-    exchange_rate
+    exchange_rate,
     price_eur,
     price_original_eur,
-    unit,
     currency,
     date,
     created_at,

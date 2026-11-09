@@ -25,7 +25,7 @@ Currency exchange rate data from [European Central Bank Data Portal](https://dat
 
 3. Datasets are cleaned based on data quality issues identified in the previous tests (Done).
 
-4. Datasets are transformed into a dashboard-ready relational data model (WIP).
+4. Datasets are transformed into a dashboard-ready relational data model (Done for fresh produce).
 
 5. Trends in food prices across time, markets, and health and environmental characteristics are visualized using Tableau (WIP).
 

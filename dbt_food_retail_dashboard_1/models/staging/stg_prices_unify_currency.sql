@@ -36,17 +36,17 @@ SELECT
     CASE
         WHEN prices.currency = 'EUR'
         THEN 1
-        ELSE SAFE_DIVIDE (1, ex_rates.OBS_VALUE)
+        ELSE SAFE_DIVIDE(1, ex_rates.OBS_VALUE)
     END AS exchange_rate,
     CASE
         WHEN prices.currency = 'EUR'
         THEN prices.price
-        ELSE SAFE_DIVIDE (prices.price, ex_rates.OBS_VALUE)
+        ELSE SAFE_DIVIDE(prices.price, ex_rates.OBS_VALUE)
     END AS price_eur,
     CASE
         WHEN prices.currency = 'EUR'
         THEN prices.price_original
-        ELSE SAFE_DIVIDE (prices.price_original, ex_rates.OBS_VALUE)
+        ELSE SAFE_DIVIDE(prices.price_original, ex_rates.OBS_VALUE)
     END AS price_original_eur,
     prices.unit AS unit,
     prices.currency AS currency,

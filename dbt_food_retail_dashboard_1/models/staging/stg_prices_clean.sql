@@ -6,13 +6,19 @@ SELECT
     SPLIT(category_tag, ':')[OFFSET(1)] AS category_fresh,
     CASE
         WHEN labels_tags.list[SAFE_OFFSET(0)].element = 'en:organic'
-        THEN 'organic'
+            THEN 'organic'
         ELSE NULL
     END AS label,
     price AS price,
     price_is_discounted AS discounted,
     price_without_discount AS price_original,
-    price_per AS unit,
+    CASE
+        WHEN price_per = 'KILOGRAM'
+            THEN 'kg'
+        WHEN price_per = 'UNIT'
+            THEN 'piece'
+        ELSE NULL
+    END AS unit,
     currency AS currency,
     date AS date,
     created AS created_at,
