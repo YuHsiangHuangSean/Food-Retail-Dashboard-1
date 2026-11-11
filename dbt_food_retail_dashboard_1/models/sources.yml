@@ -39,7 +39,7 @@ sources:
             description: "Find the custom test in tests. 3417 rows with discounts but no original prices - filter out in discount amount calculations"
 
           - name: price_per
-            description: "Units of price for fresh produce. KILOGRAM or UNIT. Find the custom test in tests"
+            description: "Units of price for fresh produce. KILOGRAM or UNIT or LITER. Find the custom test in tests"
 
           - name: currency
             description: "170 NULLs - filter out"

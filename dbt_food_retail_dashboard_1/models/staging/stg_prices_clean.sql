@@ -17,6 +17,8 @@ SELECT
             THEN 'kg'
         WHEN price_per = 'UNIT'
             THEN 'piece'
+        WHEN price_per = 'LITER'
+            THEN 'liter'
         ELSE NULL
     END AS unit,
     currency AS currency,
