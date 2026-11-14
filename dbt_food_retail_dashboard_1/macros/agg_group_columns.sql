@@ -1,4 +1,5 @@
 {% macro agg_group_columns() %}
+    id,
     product,
     label,
     discounted,
