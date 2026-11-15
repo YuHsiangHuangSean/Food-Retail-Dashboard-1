@@ -10,13 +10,9 @@ The database offers a unique perspective on what is happening in supermarkets: w
 This dashboard aims to transform this data into actionable insights into food markets and consumption. It explores trends in food prices, the availability and affordability of healthier and more environmentally friendly products, and how rising living costs have influenced these dimensions over time.
 
 ## Data source
-Over 340 thousand of [price data from Open Food Facts](https://prices.openfoodfacts.org/), available under the Open Database License.
+Over 340 thousand of [price data from Open Food Facts](https://prices.openfoodfacts.org/), available under the Open Database License. Loaded from Hugging Face: [price](https://huggingface.co/datasets/openfoodfacts/open-prices).
 
-Over 4.8 million of [product data from Open Food Facts](https://world.openfoodfacts.org/data), available under the Open Database License.
-
-Both datasets are loaded from Hugging Face: [price](https://huggingface.co/datasets/openfoodfacts/open-prices), [product](https://huggingface.co/datasets/openfoodfacts/product-database)
-
-Currency exchange rate data from [European Central Bank Data Portal](https://data.ecb.europa.eu/help/api/overview)
+Currency exchange rate data from [European Central Bank Data Portal](https://data.ecb.europa.eu/help/api/overview).
 
 ## ELT workflow
 1. Datasets are downloaded from Hugging Face and loaded into BigQuery. Further transformation and validation are managed using dbt Core (Done).
@@ -27,7 +23,7 @@ Currency exchange rate data from [European Central Bank Data Portal](https://dat
 
 4. Datasets are transformed into a dashboard-ready relational data model (Done for fresh produce).
 
-5. Trends in food prices across time, markets, and health and environmental characteristics are visualized using Tableau (WIP).
+5. Trends in food prices across time, markets, and health and environmental characteristics are visualized using Tableau (Done for fresh produce).
 
 6. Insights are generated from the dashboard (WIP).
 

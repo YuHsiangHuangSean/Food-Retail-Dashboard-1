@@ -6,7 +6,7 @@ data_tests:
     description: "All fresh produce should have categories"
 
   - name: test_raw_prices_country_code
-    description: "Country code and country should be 1-to-1 (except for 4 cases where the same country has multiple names)"
+    description: "Country code and country should be 1-to-1 (except for 5 cases where the same country has multiple names)"
 
   - name: test_raw_prices_labels_tag
     description: "The label column should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
