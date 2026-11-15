@@ -10,7 +10,7 @@ The database offers a unique perspective on what is happening in supermarkets: w
 This dashboard aims to transform this data into actionable insights into food markets and consumption. It explores trends in food prices, the availability and affordability of healthier and more environmentally friendly products, and how rising living costs have influenced these dimensions over time.
 
 ## Data source
-Over 340 thousand of [price data from Open Food Facts](https://prices.openfoodfacts.org/), available under the Open Database License. Loaded from Hugging Face: [price](https://huggingface.co/datasets/openfoodfacts/open-prices).
+Over 340 thousand [price data from Open Food Facts](https://prices.openfoodfacts.org/), available under the Open Database License. Loaded from [Hugging Face](https://huggingface.co/datasets/openfoodfacts/open-prices).
 
 Currency exchange rate data from [European Central Bank Data Portal](https://data.ecb.europa.eu/help/api/overview).
 
@@ -28,4 +28,9 @@ Currency exchange rate data from [European Central Bank Data Portal](https://dat
 6. Insights are generated from the dashboard (WIP).
 
 ## Automation
-1. The data pipeline from raw data in Hugging Face to an interactive Tableau dashboard is automated using GitHub Actions on a weekly/monthly update schedule (WIP). 
+1. The data pipeline from raw data in Hugging Face to an interactive Tableau dashboard is automated using GitHub Actions on a weekly/monthly update schedule (WIP).
+
+## Dashboard screenshots
+
+<img width="600" height="364" alt="image" src="https://github.com/user-attachments/assets/5f9a5b0c-647e-4d44-83a7-0041e53140a4" />
+
