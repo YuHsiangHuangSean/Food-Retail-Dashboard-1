@@ -1,5 +1,7 @@
 # Food Retail Dashboard - What is Really Happening in Supermarkets
 
+[Latest progress (Tableau Public Dashboard) →](https://public.tableau.com/app/profile/sean.huang2967/viz/FoodRetailThroughConsumersEyes-WIP/FreshProduce-Overview)
+
 ## Project overview
 #OpenFoodFacts #DataAnalytics #ELTPipeline #DataVisualization #FoodPrices #FoodSustainability #OpenData #BigQuery #dbt
 
