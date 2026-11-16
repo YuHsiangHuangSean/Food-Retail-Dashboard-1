@@ -25,7 +25,14 @@ SELECT
     date AS date,
     created AS created_at,
     updated AS updated_at,
-    location_osm_address_country_code AS country_code
+    location_osm_address_country_code AS country_code,
+    CASE
+        WHEN product_source IS NULL
+            THEN FALSE
+        ELSE TRUE
+    END AS found_in_product_database,
+    product_product_quantity AS product_quantity,
+    product_product_quantity_unit AS product_quantity_unit
 FROM {{ source('raw', 'prices') }}
 WHERE
     (price > 0 OR (price = 0 AND price_is_discounted IS TRUE))
@@ -33,3 +40,6 @@ WHERE
     AND date IS NOT NULL
     AND proof_id IS NOT NULL
     AND location_osm_address_country_code IS NOT NULL
+    AND (type = 'PRODUCT' AND product_source IS NOT NULL)
+    AND (type = 'PRODUCT' AND product_product_quantity IS NOT NULL)
+    AND (type = 'PRODUCT' AND product_product_quantity_unit IN ('g', 'ml'))

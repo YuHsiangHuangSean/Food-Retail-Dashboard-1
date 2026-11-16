@@ -1,11 +1,8 @@
-{{ config(
-    severity = "error",
-    error_if = "> 3000",
-    warn_if = "> 0"
-) }} 
-
-SELECT
-    id AS id,
-    price AS price
-FROM {{ source('raw', 'prices')}}
-WHERE price_is_discounted IS FALSE AND price <= 0
+{{ test_w_fail_rate(
+    "TRUE",
+    "price IS NULL
+    OR price < 0
+    OR (price_is_discounted IS FALSE AND price = 0)", 
+    source('raw', 'prices'), 
+    0.001
+) }}

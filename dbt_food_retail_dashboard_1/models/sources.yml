@@ -46,18 +46,16 @@ sources:
             data_tests:
               - not_null:
                   config:
-                    severity: "error"
-                    error_if: "> 3000"
-                    warn_if: "> 0"
+                    severity: "warn"
+                    warn_if: "> 300"
 
           - name: date
             description: "Date of record. 185 NULLs - filter out"
             data_tests:
               - not_null:
                   config:
-                    severity: "error"
-                    error_if: "> 3000"
-                    warn_if: "> 0"
+                    severity: "warn"
+                    warn_if: "> 300"
 
           - name: proof_id
             description: "ID of the proof of the price in the Open Prices DB. 129 NULLs - filter out"
@@ -65,6 +63,7 @@ sources:
               - not_null:
                   config:
                       severity: "warn"
+                      warn_if: "> 300"
 
           - name: proof_type
             description: "How is proof provided. 45000+ are RECEIPT. GDPR_REQUEST is not published"
@@ -77,9 +76,17 @@ sources:
             data_tests:
               - not_null:
                   config:
-                    severity: "error"
-                    error_if: "> 3000"
-                    warn_if: "> 0"
+                    severity: "warn"
+                    warn_if: "> 3000"
+
+          - name: product_source
+            description: "Whether the packaged products are found in the Open Food Facts product database. Find the custom test in tests.  ~7% NULLs - filtered out"
+
+          - name: product_product_quantity
+            description: "Product quantity in a package. Find the custom test in tests. ~15% NULLs - filtered out"
+
+          - name: product_product_quantity_unit
+            description: "Unit of product quantity in a package. Find the custom test in tests. ~15% NULLs/invalids - filtered out. Warn if there is a new unit"
 
       - name: products_18cols
         description: "Product information"

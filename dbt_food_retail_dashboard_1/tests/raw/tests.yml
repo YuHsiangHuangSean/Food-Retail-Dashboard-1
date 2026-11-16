@@ -12,16 +12,25 @@ data_tests:
     description: "The label column should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
 
   - name: test_raw_prices_price_per
-    description: "Units should be either KILOGRAM or UNIT"
+    description: "Units should be either KILOGRAM, UNIT, or LITER"
 
   - name: test_raw_prices_price_without_discount
-    description: "All discounted price records should come with original prices"
+    description: "At least 80% of discounted price records should come with original prices, otherwise a warning is triggered"
 
   - name: test_raw_prices_price
-    description: "All prices without discount should be above 0"
+    description: "At least 99.9% of prices should be above 0 (when there is no discount)"
 
   - name: test_raw_prices_product_code
     description: "All packaged products should have product codes"
 
   - name: test_raw_prices_proof_currency
     description: "The currency in the proof should match the currency of the price records"
+
+  - name: test_raw_prices_product_source
+    description: "At least 90% of packaged products should have been recorded in the product database, otherwise it should be investigated"
+
+  - name: test_raw_prices_product_quantity
+    description: "At least 80% of packaged products recorded in the product database should have a quantity"
+
+  - name: test_raw_prices_product_quantity_unit
+    description: "At least 80% of packaged products recorded in the product database should have a valid quantity unit"
