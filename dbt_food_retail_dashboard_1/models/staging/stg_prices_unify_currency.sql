@@ -29,7 +29,7 @@ SELECT
     prices.product_code AS product_code,
     prices.product_name AS product_name,
     prices.category_fresh AS category_fresh,
-    prices.label AS label,
+    prices.label_fresh AS label_fresh,
     prices.price AS price,
     prices.discounted AS discounted,
     prices.price_original AS price_original,

@@ -8,7 +8,7 @@ SELECT
         WHEN labels_tags.list[SAFE_OFFSET(0)].element = 'en:organic'
             THEN 'organic'
         ELSE NULL
-    END AS label,
+    END AS label_fresh,
     price AS price,
     price_is_discounted AS discounted,
     price_without_discount AS price_original,
@@ -32,7 +32,44 @@ SELECT
         ELSE TRUE
     END AS found_in_product_database,
     product_product_quantity AS product_quantity,
-    product_product_quantity_unit AS product_quantity_unit
+    product_product_quantity_unit AS product_quantity_unit,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%en:organic%'
+    ) AS label_organic,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%rainforest-alliance%'
+    ) AS label_rainforest_alliance,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%en:fairtrade%' OR tag.element LIKE '%en:fair-trade%'
+    ) AS label_fairtrade,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%fsc%'
+    ) AS label_fsc,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%msc%'
+    ) AS label_msc,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%responsible-aquaculture-asc%'
+    ) AS label_asc,
+    EXISTS(
+        SELECT 1
+        FROM UNNEST(product_labels_tags.list) AS tag
+        WHERE tag.element LIKE '%rspo%' OR tag.element LIKE '%roundtable-on-sustainable-palm-oil%'
+    ) AS label_rspo,
+    # product_labels_tags
+    product_nutriscore_grade AS nutriscore_grade
 FROM {{ source('raw', 'prices') }}
 WHERE
     (price > 0 OR (price = 0 AND price_is_discounted IS TRUE))
@@ -43,3 +80,4 @@ WHERE
     AND (type = 'PRODUCT' AND product_source IS NOT NULL)
     AND (type = 'PRODUCT' AND product_product_quantity IS NOT NULL)
     AND (type = 'PRODUCT' AND product_product_quantity_unit IN ('g', 'ml'))
+    AND (type = 'PRODUCT' AND product_nutriscore_grade IN ('a', 'b', 'c', 'd', 'e'))

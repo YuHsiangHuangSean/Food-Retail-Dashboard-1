@@ -1,7 +1,7 @@
 SELECT
     id,
     CONCAT(category_fresh, ' (per ', unit, ')') AS product,
-    label,
+    label_fresh AS label,
     price,
     discounted,
     price_original,
