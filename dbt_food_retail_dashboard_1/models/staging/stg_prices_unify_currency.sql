@@ -48,13 +48,20 @@ SELECT
         THEN prices.price_original
         ELSE SAFE_DIVIDE(prices.price_original, ex_rates.OBS_VALUE)
     END AS price_original_eur,
-    prices.unit AS unit,
+    prices.quantity_unit_fresh AS quantity_unit_fresh,
     prices.currency AS currency,
     prices.date AS date,
     prices.month_w_available_ex_rate AS month_w_available_ex_rate,
     prices.created_at AS created_at,
     prices.updated_at AS updated_at,
-    prices.country_code AS country_code
+    prices.country_code AS country_code,
+    prices.found_in_product_database AS found_in_product_database,
+    prices.quantity_packaged AS quantity_packaged,
+    prices.quantity_unit_packaged AS quantity_unit_packaged,
+    prices.labels_packaged AS labels_packaged,
+    prices.nutriscore_grade AS nutriscore_grade,
+    prices.greenscore_grade AS greenscore_grade,
+    prices.nova_group AS nova_group
 FROM prices_prepared AS prices
 LEFT JOIN {{ ref('exchange_rates') }} AS ex_rates
     ON prices.currency = ex_rates.CURRENCY

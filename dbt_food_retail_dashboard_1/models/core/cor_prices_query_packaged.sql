@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 SELECT
     id,
     product_code,
@@ -8,11 +10,17 @@ SELECT
     exchange_rate,
     price_eur,
     price_original_eur,
-    unit,
     currency,
     date,
     created_at,
     updated_at,
-    country_code
+    country_code,
+    found_in_product_database,
+    quantity_packaged AS quantity,
+    quantity_unit_packaged AS quantity_unit,
+    labels_packaged,
+    nutriscore_grade,
+    greenscore_grade,
+    nova_group
 FROM {{ ref('stg_prices_unify_currency') }}
 WHERE product_type = 'PRODUCT'

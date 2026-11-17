@@ -15,7 +15,47 @@ models:
       meta:
         owner: "Sean"
         owner_email: "yuhsianghuang.sean@gmail.com"
-    #columns:
-    #  - name: id
-    #    data_tests:
-    #      - unique
+    columns:
+      - name: found_in_product_database
+        description: "Whether the packaged products are found in the Open Food Facts product database. Find the custom test in tests.  ~7% NULLs - filtered out"
+
+      - name: quantity
+        description: "Product quantity in a package. Find the custom test in tests. ~15% NULLs - filtered out"
+
+      - name: product_product_quantity_unit
+        description: "Unit of product quantity in a package. Find the custom test in tests. ~15% NULLs/invalids - filtered out. Warn if there is a new unit"
+
+      - name: nutriscore_grade
+        description: "Nutri-Score calculated by Open Food Facts using its dataset and the offocial Nutri-Score algorithm. Warn if there is an unidentified entry. Filter out packaged products without a grade"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['a', 'b', 'c', 'd', 'e', 'not-applicable', 'unknown']
+              config:
+                severity: "warn"
+
+      - name: greenscore_grade
+        description: "Green-score calculated by Open Food Facts using the category-level LCA score from Agribalyse and Open Food Facts' product-specific data. A+ and F were introduced in 2024. Warn if there is an unidentified entry. Filter out packaged products without a grade"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown']
+              config:
+                severity: "warn"
+
+      - name: nova_group
+        description: "NOVA gropu calculated by Open Food Facts using the NOVA classification. Warn if there is an unidentified entry. Filter out packaged products without a group"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
+                quote: false
+              config:
+                severity: "warn"
+
+  - name: cor_prices_packaged_clean
+    description: "Clean records for packaged products"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"

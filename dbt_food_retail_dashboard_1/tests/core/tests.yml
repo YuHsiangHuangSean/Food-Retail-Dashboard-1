@@ -1,0 +1,12 @@
+version: 2
+
+data_tests:
+
+  - name: test_core_packaged_found_in_database
+    description: "At least 90% of packaged products should have been recorded in the product database, otherwise it should be investigated"
+
+  - name: test_core_packaged_quantity
+    description: "At least 80% of packaged products recorded in the product database should have a quantity"
+
+  - name: test_core_packaged_quantity_unit
+    description: "At least 80% of packaged products recorded in the product database should have a valid quantity unit"

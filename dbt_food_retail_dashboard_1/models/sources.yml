@@ -79,24 +79,5 @@ sources:
                     severity: "warn"
                     warn_if: "> 3000"
 
-          - name: product_source
-            description: "Whether the packaged products are found in the Open Food Facts product database. Find the custom test in tests.  ~7% NULLs - filtered out"
-
-          - name: product_product_quantity
-            description: "Product quantity in a package. Find the custom test in tests. ~15% NULLs - filtered out"
-
-          - name: product_product_quantity_unit
-            description: "Unit of product quantity in a package. Find the custom test in tests. ~15% NULLs/invalids - filtered out. Warn if there is a new unit"
-
-          - name: product_nutriscore_grade
-            description: “Nutri-Score calculated by Open Food Facts using its dataset and the offocial Nutri-Score algorithm. Warn if there is an unidentified entry. Filter out packaged products without a grade”
-            data_tests:
-              - accepted_values:
-                  arguments:
-                    values: ['a', 'b', 'c', 'd', 'e', 'not-applicable', NULL, 'unknown']
-                  config:
-                    severity: "warn"
-                    warn_if: "> 0"
-
       - name: products_18cols
         description: "Product information"

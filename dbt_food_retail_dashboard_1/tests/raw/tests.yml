@@ -9,10 +9,10 @@ data_tests:
     description: "Country code and country should be 1-to-1 (except for 5 cases where the same country has multiple names)"
 
   - name: test_raw_prices_labels_tag
-    description: "The label column should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
+    description: "The label column for fresh produce should only contain empty lists, NULL, and ['en:organic']. If new labels are found, workflow has to change"
 
   - name: test_raw_prices_price_per
-    description: "Units should be either KILOGRAM, UNIT, or LITER"
+    description: "Units for fresh produce should be either KILOGRAM, UNIT, or LITER"
 
   - name: test_raw_prices_price_without_discount
     description: "At least 80% of discounted price records should come with original prices, otherwise a warning is triggered"
@@ -25,12 +25,3 @@ data_tests:
 
   - name: test_raw_prices_proof_currency
     description: "The currency in the proof should match the currency of the price records"
-
-  - name: test_raw_prices_product_source
-    description: "At least 90% of packaged products should have been recorded in the product database, otherwise it should be investigated"
-
-  - name: test_raw_prices_product_quantity
-    description: "At least 80% of packaged products recorded in the product database should have a quantity"
-
-  - name: test_raw_prices_product_quantity_unit
-    description: "At least 80% of packaged products recorded in the product database should have a valid quantity unit"
