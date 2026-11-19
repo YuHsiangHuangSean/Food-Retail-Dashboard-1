@@ -1,6 +1,6 @@
 # Food Retail Dashboard - What is Really Happening in Supermarkets
 
-[Latest progress (Tableau Public Dashboard) →](https://public.tableau.com/app/profile/sean.huang2967/viz/FoodRetailThroughConsumersEyes-WIP/FreshProduce-Overview)
+[Latest progress (Tableau Public Dashboard) →](https://public.tableau.com/app/profile/sean.huang2967/viz/FoodRetailThroughConsumersEyes-WIP/Packagedproducts-Overview)
 
 ## Project overview
 #OpenFoodFacts #DataAnalytics #ELTPipeline #DataVisualization #FoodPrices #FoodSustainability #OpenData #BigQuery #dbt
@@ -34,5 +34,8 @@ Currency exchange rate data from [European Central Bank Data Portal](https://dat
 
 ## Dashboard screenshots
 
-<img width="600" height="364" alt="image" src="https://github.com/user-attachments/assets/5f9a5b0c-647e-4d44-83a7-0041e53140a4" />
+<img width="600" height="385" alt="image" src="https://github.com/user-attachments/assets/f4d9bbdd-7b8a-4fce-b961-af3bf9aa5c33" />
+
+<img width="600" height="370" alt="image" src="https://github.com/user-attachments/assets/12b4ee16-060c-47ae-94ff-ed9d278481e0" />
+
 
