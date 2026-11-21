@@ -4,7 +4,7 @@
         FROM UNNEST({{ column_name }}.list) AS item
         WHERE
             {% for keyword in keywords %}
-                item.element LIKE '%{{ pattern }}%'
+                item.element LIKE '%{{ keyword }}%'
                 {% if not loop.last %} OR {% endif %}
             {% endfor %}
     )
