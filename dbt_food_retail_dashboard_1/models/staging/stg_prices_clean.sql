@@ -33,6 +33,7 @@ SELECT
     END AS found_in_product_database,
     product_product_quantity AS quantity_packaged,
     product_product_quantity_unit AS quantity_unit_packaged,
+    product_categories_tags AS categories_packaged,
     product_labels_tags AS labels_packaged,
     product_nutriscore_grade AS nutriscore_grade,
     product_ecoscore_grade AS greenscore_grade,

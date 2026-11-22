@@ -18,6 +18,7 @@ SELECT
     found_in_product_database,
     quantity_packaged AS quantity,
     quantity_unit_packaged AS quantity_unit,
+    categories_packaged AS categories,
     labels_packaged,
     nutriscore_grade,
     greenscore_grade,

@@ -15,6 +15,7 @@ SELECT
     found_in_product_database,
     quantity,
     quantity_unit,
+    categories,
     {{ keyword_in_list(
         'labels_packaged',
         ['en:organic']
@@ -43,7 +44,7 @@ SELECT
         'labels_packaged',
         ['rspo', 'roundtable-on-sustainable-palm-oil']
     ) }} AS label_rspo,
-    # labels_packaged
+    # labels_packaged,
     nutriscore_grade,
     greenscore_grade,
     nova_group

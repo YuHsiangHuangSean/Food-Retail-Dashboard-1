@@ -58,6 +58,7 @@ SELECT
     prices.found_in_product_database AS found_in_product_database,
     prices.quantity_packaged AS quantity_packaged,
     prices.quantity_unit_packaged AS quantity_unit_packaged,
+    prices.categories_packaged AS categories_packaged,
     prices.labels_packaged AS labels_packaged,
     prices.nutriscore_grade AS nutriscore_grade,
     prices.greenscore_grade AS greenscore_grade,

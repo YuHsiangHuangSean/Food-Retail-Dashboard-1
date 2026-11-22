@@ -2,6 +2,7 @@ SELECT DISTINCT
     product,
     quantity,
     quantity_unit,
+    categories,
     label_organic,
     label_rainforest_alliance,
     label_fairtrade,
