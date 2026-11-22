@@ -16,6 +16,7 @@ SELECT
     quantity,
     quantity_unit,
     categories,
+    # labels_packaged,
     {{ keyword_in_list(
         'labels_packaged',
         ['en:organic']
@@ -44,9 +45,12 @@ SELECT
         'labels_packaged',
         ['rspo', 'roundtable-on-sustainable-palm-oil']
     ) }} AS label_rspo,
-    # labels_packaged,
-    nutriscore_grade,
-    greenscore_grade,
+    UPPER(nutriscore_grade) AS nutriscore_grade,
+    CASE
+        WHEN greenscore_grade = 'a-plus'
+            THEN 'A+'
+        ELSE UPPER(greenscore_grade)
+    END AS greenscore_grade,
     nova_group
 FROM {{ ref('cor_prices_query_packaged') }}
 WHERE

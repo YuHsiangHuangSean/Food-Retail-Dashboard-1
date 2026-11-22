@@ -59,3 +59,17 @@ models:
       meta:
         owner: "Sean"
         owner_email: "yuhsianghuang.sean@gmail.com"
+
+  - name: cor_products_packaged
+    description: "Create a dimensional view containing product details for packaged products"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"
+
+  - name: cor_products_classify_food_group
+    description: "Convert categories into food groups based on the pre-defined mapping"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"

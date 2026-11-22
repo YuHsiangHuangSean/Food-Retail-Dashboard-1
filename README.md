@@ -16,6 +16,8 @@ Over 340 thousand [price data from Open Food Facts](https://prices.openfoodfacts
 
 Currency exchange rate data from [European Central Bank Data Portal](https://data.ecb.europa.eu/help/api/overview).
 
+Food groups from [Open Food Facts Server GitHub Repo](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food_groups.txt). The relationship between food groups and category tags from [Open Food Facts Prices Exploration GitHub Repo](https://github.com/openfoodfacts/open-prices-exploration)
+
 ## ELT workflow
 1. Datasets are downloaded from Hugging Face and loaded into BigQuery. Further transformation and validation are managed using dbt Core (Done).
 

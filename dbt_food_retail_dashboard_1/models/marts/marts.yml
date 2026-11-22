@@ -79,3 +79,10 @@ models:
       - name: quantity_unit
         data_tests:
           - not_null
+
+  - name: dim_latest_update_packaged
+    description: "Latest update time for packaged products"
+    config:
+      meta:
+        owner: "Sean"
+        owner_email: "yuhsianghuang.sean@gmail.com"

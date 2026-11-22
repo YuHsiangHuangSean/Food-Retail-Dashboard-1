@@ -1,16 +1,2 @@
-SELECT DISTINCT
-    product,
-    quantity,
-    quantity_unit,
-    categories,
-    label_organic,
-    label_rainforest_alliance,
-    label_fairtrade,
-    label_fsc,
-    label_msc,
-    label_asc,
-    label_rspo,
-    nutriscore_grade,
-    greenscore_grade,
-    nova_group,
-FROM {{ ref('cor_prices_packaged_clean') }}
+SELECT *
+FROM {{ ref('cor_products_classify_food_group') }}
