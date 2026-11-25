@@ -6,6 +6,8 @@ WITH initial_aggregation AS (
         products.categories,
         COUNT(DISTINCT mapping.food_group_1) AS food_groups_1_count,
         ARRAY_AGG(DISTINCT mapping.food_group_1 IGNORE NULLS) AS food_groups_1,
+        COUNT(DISTINCT mapping.food_group_2) AS food_groups_2_count,
+        ARRAY_AGG(DISTINCT mapping.food_group_2 IGNORE NULLS) AS food_groups_2,
         products.label_organic,
         products.label_rainforest_alliance,
         products.label_fairtrade,
@@ -38,6 +40,13 @@ SELECT
             THEN 'Composite foods'
         ELSE 'Ambiguous'
     END AS food_group,
+    CASE
+        WHEN food_groups_2_count = 0
+            THEN NULL
+        WHEN food_groups_2_count = 1
+            THEN food_groups_2[SAFE_OFFSET(0)]
+        ELSE 'Ambiguous'
+    END AS food_subgroup,
     label_organic,
     label_rainforest_alliance,
     label_fairtrade,
